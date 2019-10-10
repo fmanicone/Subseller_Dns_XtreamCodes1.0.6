@@ -2,6 +2,8 @@
 Add Subseller and Dns forx Xtream Codes 1.0.6
 
 -Add files in wwwdir
+
+
 -Execute  query
 
 alter table reg_users add `parent_member` int null;
