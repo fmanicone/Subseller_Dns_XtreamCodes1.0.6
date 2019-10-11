@@ -3,7 +3,7 @@ define('MAIN_DIR', '/home/xtreamcodes/');
 define('IPTV_PANEL_DIR', MAIN_DIR . 'iptv_xtream_codes/');
 require_once(IPTV_PANEL_DIR . 'wwwdir/includes/utils.php');
 
-$username = is_reseller();
+$username = dns_check();
 if (!$username) {
 $value=["isreseller"=>false, "dns"=>"", "dnsserver"=>"" ];
 } else {
@@ -15,4 +15,3 @@ $value=["isreseller"=>false, "dns"=>$username['dnsreseller'], "dnsserver"=>$dnss
 }
 }
 echo json_encode($value);
-
