@@ -77,18 +77,6 @@ function is_reseller()
     }
 }
 
-function dns_check()
-{
-    if (isset($_SESSION['user_id'])) {
-        $result = DB::queryFirstRow("select username, credits, dnsreseller, group_name  from reg_users join member_groups On member_group_id=group_id where id=%s", $_SESSION['user_id']);
-        return $result;
-    } else {
-        return false;
-    }
-}
-
-
-
 function get_user()
 {
     $result = DB::query("select id, username,email,credits,notes, dnsreseller from reg_users where parent_member=%d and id=%d", $_SESSION['user_id'], $_GET['user_id']);
@@ -397,4 +385,5 @@ function get_sidebar_admin(){
 </aside>
 <?php
 }
+
 

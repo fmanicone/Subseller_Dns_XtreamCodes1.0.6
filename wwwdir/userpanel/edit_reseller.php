@@ -35,13 +35,14 @@ if (isset($_GET['action']) && $_GET['action'] == "edit_user" && isset($_GET['use
 
                 $new_money = (int)$_POST['credits'] - (int)$old;
                 $togli_money = DB::query("UPDATE reg_users SET credits = (credits - %d) WHERE id=%d", $new_money, $_SESSION['user_id']);
-		    header('Location: /userpanel/reseller.php');
+		    header('Location: reseller.php');
 
 
             }
         }
 
     } else {
+die();
         $error = true;
     }
 }
@@ -83,8 +84,7 @@ get_head();
     <article class="module width_full">
         <header><h3 class="tabs_involved">Edit Reseller User</h3>
         </header>
-        <form method="post" name="form"
-              action="edit_reseller.php?action=edit_user&user_id=<?php echo $_GET['user_id'] ?>">
+        <form method="post" name="form" action="edit_reseller.php?action=edit_user&user_id=<?php echo $_GET['user_id'] ?>">
             <div class="module_content">
 
                 <fieldset>
